@@ -1,10 +1,9 @@
 payload:
 # NAME: MEDIA Rules
 # AUTHOR: Akaspyrean
-# REPO: https://github.com/Akaspyrean
-# UPDATED: 2026-02-01 03:21:10
-# CHECKSUM: 744a67a512f54cf3acc4380061cd3489163ffd068d822b1936856b290dd62d09
-# TOTAL: 1585
+# UPDATED: 2026-02-01 03:28:07
+# CHECKSUM: 6a8128e80d6b5d62ead4e73d478d3236dadbd5fe1b7d8c990399e6474c9a009e
+# TOTAL: 1583
 
   - DOMAIN-SUFFIX,youtube.be
   - DOMAIN-SUFFIX,youtube.hk
@@ -192,13 +191,11 @@ payload:
 
   - USER-AGENT,YouTube*
   - USER-AGENT,com.google.ios.youtubemusic*
-  - USER-AGENT,*YouTubeMusic*
-  - USER-AGENT,*com.google.ios.youtubemusic*
+  - USER-AGENT,youtube*
   - IP-CIDR,216.73.80.0/20,no-resolve
   - USER-AGENT,YouTubeMusic*
   - IP-CIDR,172.110.32.0/21,no-resolve
   - IP-CIDR6,2620:120:e000::/40,no-resolve
-  - USER-AGENT,*youtube*
   - USER-AGENT,com.google.ios.youtube*
 
   - DOMAIN,h-netflix.online-metrix.net
