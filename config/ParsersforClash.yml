@@ -1,38 +1,38 @@
 parsers:
-  # Æ¥ÅäËùÓĞ HTTPS ¿ªÍ·µÄ¶©ÔÄÁ´½Ó
+  # åŒ¹é…æ‰€æœ‰ HTTPS å¼€å¤´çš„è®¢é˜…é“¾æ¥
   - reg: https://+.+
     code: |
       /**
-       *  Mihomo ÄÚºË°æ Clash ÅäÖÃÖØĞ´½Å±¾
+       *  Mihomo å†…æ ¸ç‰ˆ Clash é…ç½®é‡å†™è„šæœ¬
        * =================================================================
-       * Ê¹ÓÃËµÃ÷£º
-       * 1. ×÷ÓÃ£ºÍêÈ«½Ó¹ÜÔ­¶©ÔÄÅäÖÃ£¬ÆôÓÃ Mihomo ÄÚºË×¨Êô¹¦ÄÜ¡£
-       * 2. ºËĞÄ¹¦ÄÜ£º
-       * - ×Ô¶¯·Ö×é£º»ùÓÚÕıÔò×Ô¶¯½«½Úµã¹éÀàÎª [ÑÇÌ«]¡¢[ÃÀÅ·]¡£
-       * - ¼«ËÙ¹æÔò£ºÊ¹ÓÃ±¾µØ GeoSite Êı¾İ¿â£¬²»ÒÀÀµÍâ²¿ Rule-Set ÏÂÔØ¡£
-       * 3. ²Ù×÷²½Öè£º
-       * - ½«´Ë´úÂëÕ³Ìùµ½ Settings£¨ÉèÖÃ£© -> Parsers£¨ÅäÖÃÎÄ¼şÔ¤´¦Àí£©¡£
-       * - »Øµ½ Profiles£¨ÅäÖÃ£© ½çÃæ£¬µã»÷¶©ÔÄ¿¨Æ¬µÄ "Ë¢ĞÂ" °´Å¥¼´¿ÉÉúĞ§¡£
+       * ä½¿ç”¨è¯´æ˜ï¼š
+       * 1. ä½œç”¨ï¼šå®Œå…¨æ¥ç®¡åŸè®¢é˜…é…ç½®ï¼Œå¯ç”¨ Mihomo å†…æ ¸ä¸“å±åŠŸèƒ½ã€‚
+       * 2. æ ¸å¿ƒåŠŸèƒ½ï¼š
+       * - è‡ªåŠ¨åˆ†ç»„ï¼šåŸºäºæ­£åˆ™è‡ªåŠ¨å°†èŠ‚ç‚¹å½’ç±»ä¸º [äºšå¤ª]ã€[ç¾æ¬§]ã€‚
+       * - æé€Ÿè§„åˆ™ï¼šä½¿ç”¨æœ¬åœ° GeoSite æ•°æ®åº“ï¼Œä¸ä¾èµ–å¤–éƒ¨ Rule-Set ä¸‹è½½ã€‚
+       * 3. æ“ä½œæ­¥éª¤ï¼š
+       * - å°†æ­¤ä»£ç ç²˜è´´åˆ° Settingsï¼ˆè®¾ç½®ï¼‰ -> Parsersï¼ˆé…ç½®æ–‡ä»¶é¢„å¤„ç†ï¼‰ã€‚
+       * - å›åˆ° Profilesï¼ˆé…ç½®ï¼‰ ç•Œé¢ï¼Œç‚¹å‡»è®¢é˜…å¡ç‰‡çš„ "åˆ·æ–°" æŒ‰é’®å³å¯ç”Ÿæ•ˆã€‚
        * =================================================================
        */
       
       module.exports.parse = async (raw, { yaml }) => {
-        // 1. ½âÎö¶©ÔÄÄÚÈİ£¬ÌáÈ¡ËùÓĞ½Úµã
+        // 1. è§£æè®¢é˜…å†…å®¹ï¼Œæå–æ‰€æœ‰èŠ‚ç‚¹
         const rawConfig = yaml.parse(raw);
         const proxies = rawConfig.proxies || [];
         const allNames = proxies.map(p => p.name);
 
-        // 2. Ê¹ÓÃ JS ÕıÔò½øĞĞ×Ô¶¯ÇøÓò·Ö×é
-        const asianNames = allNames.filter(n => /(Ïã¸Û|HK|hk|Hong Kong|Ì¨Íå|TW|Taiwan|°ÄÃÅ|MO|Macau|ÈÕ±¾|JP|Japan|ĞÂ¼ÓÆÂ|SG|Singapore|º«|KR|Korea|°Ä|AU|Australia|Ó¡¶È|IN|India|Ì©|TH|Thailand|ÂíÀ´|MY|Malaysia)/i.test(n));
-        const westernNames = allNames.filter(n => /(ÃÀ|US|United States|Ó¢|UK|United Kingdom|µÂ|DE|Germany|·¨|FR|France|¼ÓÄÃ|CA|Canada|ºÉÀ¼|NL|Netherlands|ÍÁ¶úÆä|TR|Turkey)/i.test(n));
+        // 2. ä½¿ç”¨ JS æ­£åˆ™è¿›è¡Œè‡ªåŠ¨åŒºåŸŸåˆ†ç»„
+        const asianNames = allNames.filter(n => /(é¦™æ¸¯|HK|hk|Hong Kong|å°æ¹¾|TW|Taiwan|æ¾³é—¨|MO|Macau|æ—¥æœ¬|JP|Japan|æ–°åŠ å¡|SG|Singapore|éŸ©|KR|Korea|æ¾³|AU|Australia|å°åº¦|IN|India|æ³°|TH|Thailand|é©¬æ¥|MY|Malaysia)/i.test(n));
+        const westernNames = allNames.filter(n => /(ç¾|US|United States|è‹±|UK|United Kingdom|å¾·|DE|Germany|æ³•|FR|France|åŠ æ‹¿|CA|Canada|è·å…°|NL|Netherlands|åœŸè€³å…¶|TR|Turkey)/i.test(n));
         
-        // ÎŞÆ¥Åä½ÚµãÊ±ÆôÓÃ¡°ÊÖ¶¯Ñ¡Ôñ¡±¶µµ×£¬·ÀÖ¹·Ö×éÎª¿Õ±¨´í
-        if (asianNames.length === 0) asianNames.push("ÊÖ¶¯Ñ¡Ôñ");
-        if (westernNames.length === 0) westernNames.push("ÊÖ¶¯Ñ¡Ôñ");
+        // æ— åŒ¹é…èŠ‚ç‚¹æ—¶å¯ç”¨â€œæ‰‹åŠ¨é€‰æ‹©â€å…œåº•ï¼Œé˜²æ­¢åˆ†ç»„ä¸ºç©ºæŠ¥é”™
+        if (asianNames.length === 0) asianNames.push("æ‰‹åŠ¨é€‰æ‹©");
+        if (westernNames.length === 0) westernNames.push("æ‰‹åŠ¨é€‰æ‹©");
 
-        // 3. ¹¹½¨×îÖÕÅäÖÃ
+        // 3. æ„å»ºæœ€ç»ˆé…ç½®
         const config = {
-          // --- »ù´¡ÉèÖÃ ---
+          // --- åŸºç¡€è®¾ç½® ---
           "mixed-port": 7890,
           "allow-lan": true,
           "log-level": "info",
@@ -41,52 +41,52 @@ parsers:
           "geodata-mode": true,
           "geodata-loader": "standard",
           
-          // --- ½ÚµãÁĞ±í ---
+          // --- èŠ‚ç‚¹åˆ—è¡¨ ---
           "proxies": proxies,
 
-          // --- DNS ·ÖÁ÷ÉèÖÃ ---
+          // --- DNS åˆ†æµè®¾ç½® ---
           "dns": {
             "enable": true,
             "listen": "0.0.0.0:9053",
             "enhanced-mode": "fake-ip",
             "fake-ip-range": "198.18.0.1/16",
             "fake-ip-filter": [
-              // ¾ÖÓòÍø/Â·ÓÉÏà¹Ø
+              // å±€åŸŸç½‘/è·¯ç”±ç›¸å…³
               "+.lan",
               "+.local",
               "+.home.arpa",
-              // Èí¼ş¼æÈİĞÔĞŞ¸´
+              // è½¯ä»¶å…¼å®¹æ€§ä¿®å¤
               "localhost.ptlogin2.qq.com",
-              // Windows ÍøÂçÁ¬½ÓÌ½²â
+              // Windows ç½‘ç»œè¿æ¥æ¢æµ‹
               "+.msftconnecttest.com", 
               "+.msftncsi.com"
             ],
           },
 
-          // --- ´úÀí²ßÂÔ×é ---
+          // --- ä»£ç†ç­–ç•¥ç»„ ---
           "proxy-groups": [
             {
-              "name": "½ÚµãÑ¡Ôñ",
+              "name": "èŠ‚ç‚¹é€‰æ‹©",
               "type": "select",
-              "proxies": ["×Ô¶¯Ñ¡Ôñ", "ÑÇÌ«ÓÅÑ¡", "ÃÀÅ·ÓÅÑ¡", "ÊÖ¶¯Ñ¡Ôñ", "DIRECT"]
+              "proxies": ["è‡ªåŠ¨é€‰æ‹©", "äºšå¤ªä¼˜é€‰", "ç¾æ¬§ä¼˜é€‰", "æ‰‹åŠ¨é€‰æ‹©", "DIRECT"]
             },
             {
-              "name": "ÈË¹¤ÖÇÄÜ",
+              "name": "äººå·¥æ™ºèƒ½",
               "type": "select",
-              "proxies": ["ÃÀÅ·ÓÅÑ¡", "ÑÇÌ«ÓÅÑ¡", "½ÚµãÑ¡Ôñ", "ÊÖ¶¯Ñ¡Ôñ"]
+              "proxies": ["ç¾æ¬§ä¼˜é€‰", "äºšå¤ªä¼˜é€‰", "èŠ‚ç‚¹é€‰æ‹©", "æ‰‹åŠ¨é€‰æ‹©"]
             },
             {
-              "name": "Ó°ÒôÊÓÌı",
+              "name": "å½±éŸ³è§†å¬",
               "type": "select",
-              "proxies": ["ÑÇÌ«ÓÅÑ¡", "ÃÀÅ·ÓÅÑ¡", "½ÚµãÑ¡Ôñ", "ÊÖ¶¯Ñ¡Ôñ"]
+              "proxies": ["äºšå¤ªä¼˜é€‰", "ç¾æ¬§ä¼˜é€‰", "èŠ‚ç‚¹é€‰æ‹©", "æ‰‹åŠ¨é€‰æ‹©"]
             },
             {
-              "name": "ÊÖ¶¯Ñ¡Ôñ",
+              "name": "æ‰‹åŠ¨é€‰æ‹©",
               "type": "select",
               "proxies": allNames.length > 0 ? allNames : ["DIRECT"]
             },
             {
-              "name": "×Ô¶¯Ñ¡Ôñ",
+              "name": "è‡ªåŠ¨é€‰æ‹©",
               "type": "url-test",
               "url": "http://www.gstatic.com/generate_204",
               "interval": 300,
@@ -94,7 +94,7 @@ parsers:
               "proxies": allNames.length > 0 ? allNames : ["DIRECT"]
             },
             {
-              "name": "ÑÇÌ«ÓÅÑ¡",
+              "name": "äºšå¤ªä¼˜é€‰",
               "type": "url-test",
               "url": "http://www.gstatic.com/generate_204",
               "interval": 300,
@@ -102,7 +102,7 @@ parsers:
               "proxies": asianNames
             },
             {
-              "name": "ÃÀÅ·ÓÅÑ¡",
+              "name": "ç¾æ¬§ä¼˜é€‰",
               "type": "url-test",
               "url": "http://www.gstatic.com/generate_204",
               "interval": 300,
@@ -111,7 +111,7 @@ parsers:
             }
           ],
           
-          // --- ¹æÔò¼¯Ô´ ---
+          // --- è§„åˆ™é›†æº ---
           "rule-providers": {
             "private": {
               "type": "http",
@@ -150,27 +150,27 @@ parsers:
             }
           },
 
-          // --- ·ÖÁ÷¹æÔò ---
+          // --- åˆ†æµè§„åˆ™ ---
           "rules": [
-            // 1. Ö±Á¬ÌØÈ¨
+            // 1. ç›´è¿ç‰¹æƒ
             "RULE-SET,private,DIRECT",            
             "GEOSITE,private,DIRECT",
             "RULE-SET,direct,DIRECT",
             
-            // 2. ¹ã¸æÀ¹½Ø
+            // 2. å¹¿å‘Šæ‹¦æˆª
             "GEOSITE,category-ads-all,REJECT",
 
-            // 3. ²ßÂÔ·ÖÁ÷
-            "RULE-SET,ai,ÈË¹¤ÖÇÄÜ",
-            "RULE-SET,media,Ó°ÒôÊÓÌı",
-            "RULE-SET,proxy,½ÚµãÑ¡Ôñ",
+            // 3. ç­–ç•¥åˆ†æµ
+            "RULE-SET,ai,äººå·¥æ™ºèƒ½",
+            "RULE-SET,media,å½±éŸ³è§†å¬",
+            "RULE-SET,proxy,èŠ‚ç‚¹é€‰æ‹©",
 
-            // 4. µØÇø¶µµ×
+            // 4. åœ°åŒºå…œåº•
             "GEOSITE,cn,DIRECT",
             "GEOIP,CN,DIRECT",
             
-            // 5. Â©ÍøÖ®Óã
-            "MATCH,½ÚµãÑ¡Ôñ"
+            // 5. æ¼ç½‘ä¹‹é±¼
+            "MATCH,èŠ‚ç‚¹é€‰æ‹©"
           ]
         };
 
