@@ -35,7 +35,7 @@ parsers:
           // --- 基础设置 ---
           "mixed-port": 7890,
           "allow-lan": true,
-          "log-level": "info",
+          "log-level": "error",
           "ipv6": false,
           "external-controller": "0.0.0.0:9090",
           "geodata-mode": true,
