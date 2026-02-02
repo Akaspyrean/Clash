@@ -36,8 +36,8 @@ parsers:
           "mixed-port": 7890,
           "allow-lan": true,
           "log-level": "error",
-          "ipv6": false,
-          "external-controller": "0.0.0.0:9090",
+          "ipv6": true,
+          "external-controller": "127.0.0.1:9090",
           "geodata-mode": true,
           "geodata-loader": "standard",
           
