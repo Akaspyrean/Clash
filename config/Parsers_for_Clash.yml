@@ -1,0 +1,178 @@
+parsers:
+  # 匹配所有 HTTPS 开头的订阅链接
+  - reg: https://+.+
+    code: |
+      /**
+       *  Mihomo 内核版 Clash 配置重写脚本
+       * =================================================================
+       * 使用说明：
+       * 1. 作用：完全接管原订阅配置，启用 Mihomo 内核专属功能。
+       * 2. 核心功能：
+       * - 自动分组：基于正则自动将节点归类为 [亚太]、[美欧]。
+       * - 极速规则：使用本地 GeoSite 数据库，不依赖外部 Rule-Set 下载。
+       * 3. 操作步骤：
+       * - 将此代码粘贴到 Settings（设置） -> Parsers（配置文件预处理）。
+       * - 回到 Profiles（配置） 界面，点击订阅卡片的 "刷新" 按钮即可生效。
+       * =================================================================
+       */
+      
+      module.exports.parse = async (raw, { yaml }) => {
+        // 1. 解析订阅内容，提取所有节点
+        const rawConfig = yaml.parse(raw);
+        const proxies = rawConfig.proxies || [];
+        const allNames = proxies.map(p => p.name);
+
+        // 2. 使用 JS 正则进行自动区域分组
+        const asianNames = allNames.filter(n => /(香港|HK|hk|Hong Kong|台湾|TW|Taiwan|澳门|MO|Macau|日本|JP|Japan|新加坡|SG|Singapore|韩|KR|Korea|澳|AU|Australia|印度|IN|India|泰|TH|Thailand|马来|MY|Malaysia)/i.test(n));
+        const westernNames = allNames.filter(n => /(美|US|United States|英|UK|United Kingdom|德|DE|Germany|法|FR|France|加拿|CA|Canada|荷兰|NL|Netherlands|土耳其|TR|Turkey)/i.test(n));
+        
+        // 无匹配节点时启用“手动选择”兜底，防止分组为空报错
+        if (asianNames.length === 0) asianNames.push("手动选择");
+        if (westernNames.length === 0) westernNames.push("手动选择");
+
+        // 3. 构建最终配置
+        const config = {
+          // --- 基础设置 ---
+          "mixed-port": 7890,
+          "allow-lan": true,
+          "log-level": "info",
+          "ipv6": false,
+          "external-controller": "0.0.0.0:9090",
+          "geodata-mode": true,
+          "geodata-loader": "standard",
+          
+          // --- 节点列表 ---
+          "proxies": proxies,
+
+          // --- DNS 分流设置 ---
+          "dns": {
+            "enable": true,
+            "listen": "0.0.0.0:9053",
+            "enhanced-mode": "fake-ip",
+            "fake-ip-range": "198.18.0.1/16",
+            "fake-ip-filter": [
+              // 局域网/路由相关
+              "+.lan",
+              "+.local",
+              "+.home.arpa",
+              // 软件兼容性修复
+              "localhost.ptlogin2.qq.com",
+              // Windows 网络连接探测
+              "+.msftconnecttest.com", 
+              "+.msftncsi.com"
+            ],
+          },
+
+          // --- 代理策略组 ---
+          "proxy-groups": [
+            {
+              "name": "节点选择",
+              "type": "select",
+              "proxies": ["自动选择", "亚太优选", "美欧优选", "手动选择", "DIRECT"]
+            },
+            {
+              "name": "人工智能",
+              "type": "select",
+              "proxies": ["美欧优选", "亚太优选", "节点选择", "手动选择"]
+            },
+            {
+              "name": "影音视听",
+              "type": "select",
+              "proxies": ["亚太优选", "美欧优选", "节点选择", "手动选择"]
+            },
+            {
+              "name": "手动选择",
+              "type": "select",
+              "proxies": allNames.length > 0 ? allNames : ["DIRECT"]
+            },
+            {
+              "name": "自动选择",
+              "type": "url-test",
+              "url": "http://www.gstatic.com/generate_204",
+              "interval": 300,
+              "tolerance": 50,
+              "proxies": allNames.length > 0 ? allNames : ["DIRECT"]
+            },
+            {
+              "name": "亚太优选",
+              "type": "url-test",
+              "url": "http://www.gstatic.com/generate_204",
+              "interval": 300,
+              "tolerance": 50,
+              "proxies": asianNames
+            },
+            {
+              "name": "美欧优选",
+              "type": "url-test",
+              "url": "http://www.gstatic.com/generate_204",
+              "interval": 300,
+              "tolerance": 50,
+              "proxies": westernNames
+            }
+          ],
+          
+          // --- 规则集源 ---
+          "rule-providers": {
+            "private": {
+              "type": "http",
+              "behavior": "classical",
+              "url": "https://i.fongap.com/clash/rules/private.yaml",
+              "path": "./rules/private.yaml",
+              "interval": 86400
+            },
+            "direct": {
+              "type": "http",
+              "behavior": "classical",
+              "url": "https://raw.githubusercontent.com/Akaspyrean/Clash/main/rules/direct.yaml",
+              "path": "./rules/direct.yaml",
+              "interval": 86400
+            },
+            "ai": {
+              "type": "http",
+              "behavior": "classical",
+              "url": "https://raw.githubusercontent.com/Akaspyrean/Clash/main/rules/ai.yaml",
+              "path": "./rules/ai.yaml",
+              "interval": 86400
+            },
+            "media": {
+              "type": "http",
+              "behavior": "classical",
+              "url": "https://raw.githubusercontent.com/Akaspyrean/Clash/main/rules/media.yaml",
+              "path": "./rules/media.yaml",
+              "interval": 86400
+            },
+            "proxy": {
+              "type": "http",
+              "behavior": "classical",
+              "url": "https://raw.githubusercontent.com/Akaspyrean/Clash/main/rules/proxy.yaml",
+              "path": "./rules/proxy.yaml",
+              "interval": 86400
+            }
+          },
+
+          // --- 分流规则 ---
+          "rules": [
+            // 1. 直连特权
+            "RULE-SET,private,DIRECT",            
+            "GEOSITE,private,DIRECT",
+            "RULE-SET,direct,DIRECT",
+            
+            // 2. 广告拦截
+            "GEOSITE,category-ads-all,REJECT",
+
+            // 3. 策略分流
+            "RULE-SET,ai,人工智能",
+            "RULE-SET,media,影音视听",
+            "RULE-SET,proxy,节点选择",
+
+            // 4. 地区兜底
+            "GEOSITE,cn,DIRECT",
+            "GEOIP,CN,DIRECT",
+            
+            // 5. 漏网之鱼
+            "MATCH,节点选择"
+          ]
+        };
+
+        return yaml.stringify(config);
+      }
