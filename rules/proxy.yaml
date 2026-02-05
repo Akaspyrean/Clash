@@ -1,7 +1,7 @@
 # --------------------------------------------------
 # NAME:        Proxy
-# UPDATED:     05 Feb 2026 15:22 UTC
-# DOMAIN:      26486
+# UPDATED:     05 Feb 2026 23:00 UTC
+# DOMAIN:      26489
 # IP-RELATED:  6
 # Homepage:    https://github.com/Akaspyrean/external
 # --------------------------------------------------
@@ -10609,6 +10609,7 @@ payload:
   - domain-suffix,gridaware.app
   - domain-suffix,grindr.com
   - domain-suffix,grok.com
+  - domain-suffix,grokipedia.com
   - domain-suffix,grooby.com
   - domain-suffix,groq.com
   - domain-suffix,ground.news
@@ -19294,6 +19295,7 @@ payload:
   - domain-suffix,radgametools.com
   - domain-suffix,radian6.com
   - domain-suffix,radicalparty.org
+  - domain-suffix,radiko-cf.com
   - domain-suffix,radiko.jp
   - domain-suffix,radio-canada.ca
   - domain-suffix,radio-en-ligne.fr
@@ -20909,6 +20911,7 @@ payload:
   - domain-suffix,smartonerobotics.com
   - domain-suffix,smartonesolutions.com.hk
   - domain-suffix,smartonesolutions.hk
+  - domain-suffix,smartstream.ne.jp
   - domain-suffix,smashed.xxx
   - domain-suffix,smbc.co.jp
   - domain-suffix,smbctb.co.jp
