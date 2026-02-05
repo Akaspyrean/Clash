@@ -88,7 +88,7 @@ parsers:
             {
               "name": "自动选择",
               "type": "url-test",
-              "url": "http://www.gstatic.com/generate_204",
+              "url": "http://www.msftconnecttest.com/connecttest.txt",
               "interval": 300,
               "tolerance": 50,
               "proxies": allNames.length > 0 ? allNames : ["DIRECT"]
@@ -96,7 +96,7 @@ parsers:
             {
               "name": "亚太优选",
               "type": "url-test",
-              "url": "http://www.gstatic.com/generate_204",
+              "url": "http://www.msftconnecttest.com/connecttest.txt",
               "interval": 300,
               "tolerance": 50,
               "proxies": asianNames
@@ -104,7 +104,7 @@ parsers:
             {
               "name": "美欧优选",
               "type": "url-test",
-              "url": "http://www.gstatic.com/generate_204",
+              "url": "http://www.msftconnecttest.com/connecttest.txt",
               "interval": 300,
               "tolerance": 50,
               "proxies": westernNames
