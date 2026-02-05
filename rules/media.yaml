@@ -1,11 +1,12 @@
-payload:
-# NAME: Media
-# UPDATED: 2026-02-05 14:22:11
-# CHECKSUM: 980cb6c10ee8d9abffdfea8a6b6656d4df6a0f46093d8f11563440ed3e93c8bc
-# DOMAIN: 452
-# IP-RELATED: 1122
-# TOTAL: 1578
+# --------------------------------------------------
+# NAME:        Media
+# UPDATED:     05 Feb 2026 14:56 UTC
+# DOMAIN:      452
+# IP-RELATED:  1122
+# Homepage:    https://github.com/Akaspyrean/external
+# --------------------------------------------------
 
+payload:
   - domain,cdn.registerdisney.go.com
   - domain,e13252.dscg.akamaiedge.net
   - domain,h-netflix.online-metrix.net

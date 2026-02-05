@@ -1,11 +1,12 @@
-payload:
-# NAME: Direct
-# UPDATED: 2026-02-05 14:22:10
-# CHECKSUM: c3c83ac6a202c2449bc87ccd74900d8ae4ad36a7b37ba93a16f00b54b031a323
-# DOMAIN: 115136
-# IP-RELATED: 12
-# TOTAL: 115136
+# --------------------------------------------------
+# NAME:        Direct
+# UPDATED:     05 Feb 2026 14:56 UTC
+# DOMAIN:      115136
+# IP-RELATED:  12
+# Homepage:    https://github.com/Akaspyrean/external
+# --------------------------------------------------
 
+payload:
   - domain-suffix,0.zone
   - domain-suffix,00.net
   - domain-suffix,000.link

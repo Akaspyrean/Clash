@@ -1,9 +1,10 @@
-# NAME: Proxy
-# UPDATED: 2026-02-05 14:22:10
-# CHECKSUM: ddea287efecbc67ff053b616e4c4ceb54c07064281086f3c7667c008e972095f
-# DOMAIN: 26486
-# IP-RELATED: 6
-# TOTAL: 26486
+# --------------------------------------------------
+# NAME:        Proxy
+# UPDATED:     05 Feb 2026 14:56 UTC
+# DOMAIN:      26486
+# IP-RELATED:  6
+# Homepage:    https://github.com/Akaspyrean/external
+# --------------------------------------------------
 
 DOMAIN-SUFFIX,000WEBHOST.COM
 DOMAIN-SUFFIX,01.ORG

@@ -1,9 +1,10 @@
-# NAME: Direct
-# UPDATED: 2026-02-05 14:22:10
-# CHECKSUM: e34c755ad6e28a42ce545eb874727de60cf1af0e93a3dc0c9a4982ebf3ec46f4
-# DOMAIN: 115136
-# IP-RELATED: 12
-# TOTAL: 115136
+# --------------------------------------------------
+# NAME:        Direct
+# UPDATED:     05 Feb 2026 14:56 UTC
+# DOMAIN:      115136
+# IP-RELATED:  12
+# Homepage:    https://github.com/Akaspyrean/external
+# --------------------------------------------------
 
 DOMAIN-SUFFIX,0.ZONE
 DOMAIN-SUFFIX,00.NET

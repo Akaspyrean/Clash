@@ -1,11 +1,12 @@
-payload:
-# NAME: Ai
-# UPDATED: 2026-02-05 14:22:10
-# CHECKSUM: 46867a3023becb31a54dcb261fea57963904ae21c4591516a8eacfb5ffbf6520
-# DOMAIN: 79
-# IP-RELATED: 3
-# TOTAL: 82
+# --------------------------------------------------
+# NAME:        Ai
+# UPDATED:     05 Feb 2026 14:56 UTC
+# DOMAIN:      79
+# IP-RELATED:  3
+# Homepage:    https://github.com/Akaspyrean/external
+# --------------------------------------------------
 
+payload:
   - domain,ai.google.dev
   - domain,aistudio.google.com
   - domain,alkalimakersuite-pa.clients6.google.com

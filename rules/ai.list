@@ -1,9 +1,10 @@
-# NAME: Ai
-# UPDATED: 2026-02-05 14:22:10
-# CHECKSUM: 9f6369e2886cdc7b2bd8c870c06d90e6449486bd76272a028c214ef9c4b2c136
-# DOMAIN: 79
-# IP-RELATED: 3
-# TOTAL: 82
+# --------------------------------------------------
+# NAME:        Ai
+# UPDATED:     05 Feb 2026 14:56 UTC
+# DOMAIN:      79
+# IP-RELATED:  3
+# Homepage:    https://github.com/Akaspyrean/external
+# --------------------------------------------------
 
 DOMAIN,AI.GOOGLE.DEV
 DOMAIN,AISTUDIO.GOOGLE.COM
