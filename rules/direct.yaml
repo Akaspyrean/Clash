@@ -1,7 +1,7 @@
 # --------------------------------------------------
 # NAME:        Direct
-# UPDATED:     05 Feb 2026 14:58 UTC
-# DOMAIN:      115136
+# UPDATED:     05 Feb 2026 15:12 UTC
+# DOMAIN:      115147
 # IP-RELATED:  12
 # Homepage:    https://github.com/Akaspyrean/external
 # --------------------------------------------------
@@ -1251,7 +1251,9 @@ payload:
   - domain-suffix,1-luxury.com
   - domain-suffix,1-yuan.net
   - domain-suffix,1.cc
+  - domain-suffix,10.0.0.0/8
   - domain-suffix,100-tong.com
+  - domain-suffix,100.64.0.0/10
   - domain-suffix,100.com
   - domain-suffix,100.me
   - domain-suffix,100.travel
@@ -2219,6 +2221,7 @@ payload:
   - domain-suffix,1718world.com
   - domain-suffix,171tax.com
   - domain-suffix,171win.net
+  - domain-suffix,172.16.0.0
   - domain-suffix,17207.com
   - domain-suffix,172haoka.vip
   - domain-suffix,172l.com
@@ -2619,6 +2622,7 @@ payload:
   - domain-suffix,19196.com
   - domain-suffix,1919game.net
   - domain-suffix,191game.com
+  - domain-suffix,192.168.0.0/16
   - domain-suffix,192ly.com
   - domain-suffix,192sm.com
   - domain-suffix,1931.com
@@ -30696,6 +30700,7 @@ payload:
   - domain-suffix,drugfuture.com
   - domain-suffix,druggcp.net
   - domain-suffix,drughk.com
+  - domain-suffix,drugmeta.com
   - domain-suffix,drugoogle.com
   - domain-suffix,druid.vip
   - domain-suffix,drupalla.com
@@ -35579,6 +35584,7 @@ payload:
   - domain-suffix,folou.com
   - domain-suffix,foneplatform.com
   - domain-suffix,fonfu.app
+  - domain-suffix,fongap.com
   - domain-suffix,fonian.com
   - domain-suffix,fonsview.com
   - domain-suffix,font.im
@@ -60030,6 +60036,7 @@ payload:
   - domain-suffix,krszf.com
   - domain-suffix,krtdl.com
   - domain-suffix,krxz.com
+  - domain-suffix,kryy.com.cn
   - domain-suffix,krzb.net
   - domain-suffix,krzzjn.com
   - domain-suffix,ks-cdn.com
@@ -62543,6 +62550,7 @@ payload:
   - domain-suffix,licaoz.com
   - domain-suffix,licat.com
   - domain-suffix,licc.tech
+  - domain-suffix,licenses.graphpad.com
   - domain-suffix,lichangtai.com
   - domain-suffix,lichangtao.com
   - domain-suffix,lichangwen.net
@@ -73257,6 +73265,7 @@ payload:
   - domain-suffix,originlee.com
   - domain-suffix,originoo.com
   - domain-suffix,originpic.com
+  - domain-suffix,originpro.org
   - domain-suffix,originsilicon.com
   - domain-suffix,originwater.com
   - domain-suffix,origloria.com
@@ -76405,6 +76414,7 @@ payload:
   - domain-suffix,qfvip.net
   - domain-suffix,qfwl.com
   - domain-suffix,qfxcha.com
+  - domain-suffix,qfyy.com.cn
   - domain-suffix,qg.net
   - domain-suffix,qg108.com
   - domain-suffix,qgadmin.qcpp1.net
@@ -99906,6 +99916,7 @@ payload:
   - domain-suffix,www.htc.com
   - domain-suffix,www.microsoft.com
   - domain-suffix,www.nike.com
+  - domain-suffix,www.originpro.org
   - domain-suffix,www.pxcc.com
   - domain-suffix,www.recaptcha.net
   - domain-suffix,www.redhat.com
