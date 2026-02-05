@@ -1,15 +1,15 @@
 parsers:
-  # 匹配所有 HTTPS 开头的订阅链接
-  - reg: https://+.+
+  # 匹配所有 HTTP/HTTPS 开头的订阅链接
+  - reg: ^https?://.+
     code: |
       /**
-       *  Mihomo 内核版 Clash 配置重写脚本
+       * Mihomo 内核版 Clash 配置重写脚本
        * =================================================================
        * 使用说明：
        * 1. 作用：完全接管原订阅配置，启用 Mihomo 内核专属功能。
        * 2. 核心功能：
        * - 自动分组：基于正则自动将节点归类为 [亚太]、[美欧]。
-       * - 极速规则：使用本地 GeoSite 数据库，不依赖外部 Rule-Set 下载。
+       * - 极速规则：整合 GitHub 自动同步的规则集，实现云端同步。
        * 3. 操作步骤：
        * - 将此代码粘贴到 Settings（设置） -> Parsers（配置文件预处理）。
        * - 回到 Profiles（配置） 界面，点击订阅卡片的 "刷新" 按钮即可生效。
@@ -23,7 +23,7 @@ parsers:
         const allNames = proxies.map(p => p.name);
 
         // 2. 使用 JS 正则进行自动区域分组
-        const asianNames = allNames.filter(n => /(香港|HK|hk|Hong Kong|台湾|TW|Taiwan|澳门|MO|Macau|日本|JP|Japan|新加坡|SG|Singapore|韩|KR|Korea|澳|AU|Australia|印度|IN|India|泰|TH|Thailand|马来|MY|Malaysia)/i.test(n));
+        const asianNames = allNames.filter(n => /(香港|HK|Hong Kong|台湾|TW|Taiwan|澳门|MO|Macau|日本|JP|Japan|新加坡|SG|Singapore|韩|KR|Korea|澳|AU|Australia|印度|IN|India|泰|TH|Thailand|马来|MY|Malaysia)/i.test(n));
         const westernNames = allNames.filter(n => /(美|US|United States|英|UK|United Kingdom|德|DE|Germany|法|FR|France|加拿|CA|Canada|荷兰|NL|Netherlands|土耳其|TR|Turkey)/i.test(n));
         
         // 无匹配节点时启用“手动选择”兜底，防止分组为空报错
@@ -41,7 +41,15 @@ parsers:
           "geodata-mode": true,
           "geodata-loader": "standard",
           
-          // --- 节点列表 ---
+          // --- Mihomo 核心特性：域名嗅探 ---
+          "sniffer": {
+            "enable": true,
+            "sniff": {
+              "TLS": { "ports": [443, 8443] },
+              "HTTP": { "ports": [80, "8080-8880"], "override-destination": true }
+            }
+          },
+
           "proxies": proxies,
 
           // --- DNS 分流设置 ---
@@ -51,19 +59,13 @@ parsers:
             "enhanced-mode": "fake-ip",
             "fake-ip-range": "198.18.0.1/16",
             "fake-ip-filter": [
-              // 局域网/路由相关
-              "+.lan",
-              "+.local",
-              "+.home.arpa",
-              // 软件兼容性修复
+              "+.lan", "+.local", "+.home.arpa",
               "localhost.ptlogin2.qq.com",
-              // Windows 网络连接探测
-              "+.msftconnecttest.com", 
-              "+.msftncsi.com"
-            ],
+              "+.msftconnecttest.com", "+.msftncsi.com", "+.gstatic.com"
+            ]
           },
 
-          // --- 代理策略组 ---
+        // --- 策略组构建 ---
           "proxy-groups": [
             {
               "name": "节点选择",
@@ -88,7 +90,7 @@ parsers:
             {
               "name": "自动选择",
               "type": "url-test",
-              "url": "http://www.msftconnecttest.com/connecttest.txt",
+              "url": "http://www.gstatic.com/generate_204",
               "interval": 300,
               "tolerance": 50,
               "proxies": allNames.length > 0 ? allNames : ["DIRECT"]
@@ -96,7 +98,7 @@ parsers:
             {
               "name": "亚太优选",
               "type": "url-test",
-              "url": "http://www.msftconnecttest.com/connecttest.txt",
+              "url": "http://www.gstatic.com/generate_204",
               "interval": 300,
               "tolerance": 50,
               "proxies": asianNames
@@ -104,14 +106,15 @@ parsers:
             {
               "name": "美欧优选",
               "type": "url-test",
-              "url": "http://www.msftconnecttest.com/connecttest.txt",
+              "url": "http://www.gstatic.com/generate_204",
               "interval": 300,
               "tolerance": 50,
               "proxies": westernNames
             }
           ],
           
-          // --- 规则集源 ---
+        // --- 外部规则集 ---
+          "rule-providers": {
             "direct": {
               "type": "http",
               "behavior": "classical",
@@ -144,26 +147,17 @@ parsers:
 
           // --- 分流规则 ---
           "rules": [
-            // 1. 直连特权        
             "GEOSITE,private,DIRECT",
             "RULE-SET,direct,DIRECT",
-            
-            // 2. 广告拦截
             "GEOSITE,category-ads-all,REJECT",
-
-            // 3. 策略分流
             "RULE-SET,ai,人工智能",
             "RULE-SET,media,影音视听",
             "RULE-SET,proxy,节点选择",
-
-            // 4. 地区兜底
             "GEOSITE,cn,DIRECT",
             "GEOIP,CN,DIRECT",
-            
-            // 5. 漏网之鱼
             "MATCH,节点选择"
           ]
         };
 
         return yaml.stringify(config);
-      }
+      };
