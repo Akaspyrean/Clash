@@ -24,7 +24,7 @@ parsers:
 
         // 2. 使用 JS 正则进行自动区域分组
         const asianNames = allNames.filter(n => /(香港|HK|Hong Kong|台湾|TW|Taiwan|澳门|MO|Macau|日本|JP|Japan|新加坡|SG|Singapore|韩|KR|Korea|澳|AU|Australia|印度|IN|India|泰|TH|Thailand|马来|MY|Malaysia)/i.test(n));
-        const westernNames = allNames.filter(n => /(美|US|United States|英|UK|United Kingdom|德|DE|Germany|法|FR|France|加拿|CA|Canada|荷兰|NL|Netherlands|土耳其|TR|Turkey)/i.test(n));
+        const westernNames = allNames.filter(n => /(美|US|United States|英|UK|United Kingdom|德|DE|Germany|法|FR|France|加拿|CA|Canada|荷兰|NL|Netherlands|土耳其|TR|Turkey|卢森堡|LU|Luxembourg)/i.test(n));
         
         // 无匹配节点时启用“手动选择”兜底，防止分组为空报错
         if (asianNames.length === 0) asianNames.push("手动选择");
