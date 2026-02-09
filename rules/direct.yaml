@@ -1,7 +1,7 @@
 # --------------------------------------------------
 # NAME:        Direct
-# UPDATED:     08 Feb 2026 23:00 UTC
-# DOMAIN:      116486
+# UPDATED:     09 Feb 2026 23:55 UTC
+# DOMAIN:      116491
 # IP-RELATED:  18
 # Homepage:    https://github.com/Akaspyrean/external
 # --------------------------------------------------
@@ -28386,6 +28386,7 @@ payload:
   - domain-suffix,ddcdn.com
   - domain-suffix,ddcheshi.com
   - domain-suffix,ddcits.com
+  - domain-suffix,ddcorp.net
   - domain-suffix,ddcsjw.com
   - domain-suffix,ddcwl.com
   - domain-suffix,ddd-china.com
@@ -28402,6 +28403,7 @@ payload:
   - domain-suffix,ddedush.com
   - domain-suffix,ddfans.com
   - domain-suffix,ddfchina.com
+  - domain-suffix,ddfresh.net
   - domain-suffix,ddfzb.com
   - domain-suffix,ddgjjj.com
   - domain-suffix,ddguanhuai.com
@@ -28425,7 +28427,9 @@ payload:
   - domain-suffix,ddky.com
   - domain-suffix,ddle.cc
   - domain-suffix,ddlequ.com
+  - domain-suffix,ddmaicai.net
   - domain-suffix,ddmap.com
+  - domain-suffix,ddmc.mobi
   - domain-suffix,ddmer.com
   - domain-suffix,ddmogo.com
   - domain-suffix,ddnddn.com
@@ -52235,6 +52239,7 @@ payload:
   - domain-suffix,imags-google.com
   - domain-suffix,imahui.com
   - domain-suffix,imaibo.net
+  - domain-suffix,imaicai.mobi
   - domain-suffix,imaijia.com
   - domain-suffix,imaitu.com
   - domain-suffix,imalljoy.com
