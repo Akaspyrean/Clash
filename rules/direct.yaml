@@ -1,7 +1,7 @@
 # --------------------------------------------------
 # NAME:        Direct
-# UPDATED:     12 Feb 2026 23:01 UTC
-# DOMAIN:      116493
+# UPDATED:     13 Feb 2026 23:05 UTC
+# DOMAIN:      116491
 # IP-RELATED:  18
 # Homepage:    https://github.com/Akaspyrean/external
 # --------------------------------------------------
@@ -79837,7 +79837,6 @@ payload:
   - domain-suffix,redmart.com
   - domain-suffix,redmou.com
   - domain-suffix,rednetdns.com
-  - domain-suffix,rednotecdn.com
   - domain-suffix,redocn.com
   - domain-suffix,redodopower.com
   - domain-suffix,redoop.com
@@ -102383,7 +102382,6 @@ payload:
   - domain-suffix,xhslink.com
   - domain-suffix,xhslw.com
   - domain-suffix,xhsmlt.com
-  - domain-suffix,xhsrcdn.com
   - domain-suffix,xhsrmyy.com
   - domain-suffix,xhsxmt.com
   - domain-suffix,xhsyqx.com

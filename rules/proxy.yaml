@@ -1,7 +1,7 @@
 # --------------------------------------------------
 # NAME:        Proxy
-# UPDATED:     12 Feb 2026 23:01 UTC
-# DOMAIN:      24943
+# UPDATED:     13 Feb 2026 23:05 UTC
+# DOMAIN:      24984
 # IP-RELATED:  6
 # Homepage:    https://github.com/Akaspyrean/external
 # --------------------------------------------------
@@ -1733,6 +1733,7 @@ payload:
   - domain-suffix,apkplz.com
   - domain-suffix,apkpure.com
   - domain-suffix,apkpure.net
+  - domain-suffix,apkpures.xyz
   - domain-suffix,apl-hamivideo.cdn.hinet.net
   - domain-suffix,aple.com
   - domain-suffix,aplestore.com
@@ -2309,6 +2310,7 @@ payload:
   - domain-suffix,attcollaborate.com
   - domain-suffix,attdns.com
   - domain-suffix,attdns.net
+  - domain-suffix,attestation.app
   - domain-suffix,attexperts.com
   - domain-suffix,attglobal.net
   - domain-suffix,attic.io
@@ -10031,6 +10033,19 @@ payload:
   - domain-suffix,grannytube.net
   - domain-suffix,granulate.io
   - domain-suffix,graph.org
+  - domain-suffix,grapheneos.app
+  - domain-suffix,grapheneos.ca
+  - domain-suffix,grapheneos.com
+  - domain-suffix,grapheneos.dev
+  - domain-suffix,grapheneos.foundation
+  - domain-suffix,grapheneos.info
+  - domain-suffix,grapheneos.net
+  - domain-suffix,grapheneos.network
+  - domain-suffix,grapheneos.online
+  - domain-suffix,grapheneos.org
+  - domain-suffix,grapheneos.ovh
+  - domain-suffix,grapheneos.page
+  - domain-suffix,grapheneos.social
   - domain-suffix,graphengine.io
   - domain-suffix,graphis.ne.jp
   - domain-suffix,graphql.org
@@ -19082,6 +19097,7 @@ payload:
   - domain-suffix,sdnice.one
   - domain-suffix,sdnitube.buzz
   - domain-suffix,seagroup.com
+  - domain-suffix,seamlessupdate.app
   - domain-suffix,seamonkey-project.org
   - domain-suffix,seancody.com
   - domain-suffix,seaofsolitude.com
@@ -21793,8 +21809,32 @@ payload:
   - domain-suffix,ubisoft-orbit-savegames.s3.amazonaws.com
   - domain-suffix,ubisoft-uplay-savegames.s3.amazonaws.com
   - domain-suffix,ubisoft.com
+  - domain-suffix,ubisoft.siteintercept.qualtrics.com
   - domain-suffix,ubisoftconnect.com
+  - domain-suffix,ubistatic1-a.akamaihd.net
+  - domain-suffix,ubistatic10-a.akamaihd.net
+  - domain-suffix,ubistatic11-a.akamaihd.net
+  - domain-suffix,ubistatic12-a.akamaihd.net
+  - domain-suffix,ubistatic13-a.akamaihd.net
+  - domain-suffix,ubistatic14-a.akamaihd.net
+  - domain-suffix,ubistatic15-a.akamaihd.net
+  - domain-suffix,ubistatic16-a.akamaihd.net
+  - domain-suffix,ubistatic17-a.akamaihd.net
+  - domain-suffix,ubistatic18-a.akamaihd.net
+  - domain-suffix,ubistatic19-a.akamaihd.net
+  - domain-suffix,ubistatic2-a.akamaihd.net
+  - domain-suffix,ubistatic20-a.akamaihd.net
+  - domain-suffix,ubistatic21-a.akamaihd.net
+  - domain-suffix,ubistatic22-a.akamaihd.net
+  - domain-suffix,ubistatic23-a.akamaihd.net
+  - domain-suffix,ubistatic24-a.akamaihd.net
   - domain-suffix,ubistatic3-a.akamaihd.net
+  - domain-suffix,ubistatic4-a.akamaihd.net
+  - domain-suffix,ubistatic5-a.akamaihd.net
+  - domain-suffix,ubistatic6-a.akamaihd.net
+  - domain-suffix,ubistatic7-a.akamaihd.net
+  - domain-suffix,ubistatic8-a.akamaihd.net
+  - domain-suffix,ubistatic9-a.akamaihd.net
   - domain-suffix,ubncloud.com
   - domain-suffix,ubnw.net
   - domain-suffix,ubuntu-touch.io
@@ -22026,6 +22066,7 @@ payload:
   - domain-suffix,valoryirene.com
   - domain-suffix,valuegb.com
   - domain-suffix,valvesoftware.com
+  - domain-suffix,vanadium.app
   - domain-suffix,vancouverbmwretailers.ca
   - domain-suffix,vanish.at
   - domain-suffix,vanish.be
