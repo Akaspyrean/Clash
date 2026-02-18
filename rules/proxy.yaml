@@ -1,7 +1,7 @@
 # --------------------------------------------------
 # NAME:        Proxy
-# UPDATED:     17 Feb 2026 23:01 UTC
-# DOMAIN:      25079
+# UPDATED:     18 Feb 2026 23:04 UTC
+# DOMAIN:      25080
 # IP-RELATED:  6
 # Homepage:    https://github.com/Akaspyrean/external
 # --------------------------------------------------
@@ -15077,6 +15077,7 @@ payload:
   - domain-suffix,mortein.com.pk
   - domain-suffix,morteincam.com
   - domain-suffix,mos.ru
+  - domain-suffix,mosavi.io
   - domain-suffix,mostly.jp
   - domain-suffix,mostpopularpornsites.com
   - domain-suffix,motherless.com
